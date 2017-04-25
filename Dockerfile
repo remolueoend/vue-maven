@@ -36,3 +36,6 @@ RUN export BASE_URL=https://github.com/mozilla/geckodriver/releases/download \
   && curl -sL \
   $BASE_URL/$VERSION/geckodriver-$VERSION-linux64.tar.gz | tar -xz \
   && mv geckodriver /usr/local/bin/geckodriver
+
+RUN Xvfb :99 &
+RUN export DISPLAY=:99
