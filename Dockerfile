@@ -34,5 +34,5 @@ RUN export BASE_URL=https://github.com/mozilla/geckodriver/releases/download \
     https://api.github.com/repos/mozilla/geckodriver/releases/latest | \
     grep tag_name | cut -d '"' -f 4) \
   && curl -sL \
-  $BASE_URL/$VERSION/geckodriver-$VERSION-linux64.tar.gz | tar -xz \
+  https://github.com/mozilla/geckodriver/releases/download/v0.16.0/geckodriver-v0.16.0-linux64.tar.gz | tar -xz \
   && mv geckodriver /usr/local/bin/geckodriver
