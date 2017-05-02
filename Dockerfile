@@ -6,6 +6,7 @@ RUN apt-get install sudo
 RUN curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
 RUN sudo apt-get install -y nodejs
 RUN sudo npm install node-gyp -g
+RUN sudo apt-get install yarn
 
 # Add the Firefox release channel of the Debian Mozilla team:
 RUN echo 'deb http://mozilla.debian.net/ jessie-backports firefox-release' >> \
