@@ -3,6 +3,7 @@ FROM debian:jessie
 RUN apt-get update
 RUN apt-get install -y apt-utils
 RUN apt-get install -y curl
+RUN apt-get install bzip2
 
 # Install node
 RUN apt-get update
