@@ -3,7 +3,18 @@ FROM debian:jessie
 RUN apt-get update
 RUN apt-get install -y apt-utils
 RUN apt-get install -y curl
-RUN apt-get install bzip2
+RUN apt-get install -y bzip2 build-essential chrpath libssl-dev libxft-dev
+
+# PhantomJS
+RUN apt-get install libfreetype6 libfreetype6-dev
+RUN apt-get install libfontconfig1 libfontconfig1-dev
+RUN cd ~
+RUN export PHANTOM_JS="phantomjs-1.9.8-linux-x86_64"
+RUN wget https://bitbucket.org/ariya/phantomjs/downloads/$PHANTOM_JS.tar.bz2
+RUN tar xvjf $PHANTOM_JS.tar.bz2
+RUN mv $PHANTOM_JS /usr/local/share
+RUN ln -sf /usr/local/share/$PHANTOM_JS/bin/phantomjs /usr/local/bin
+
 
 # Install node
 RUN apt-get update
