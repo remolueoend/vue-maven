@@ -2,7 +2,7 @@ FROM debian:jessie
 
 RUN apt-get update
 RUN apt-get install -y apt-utils
-RUN apt-get install -y curl
+RUN apt-get install -y curl wget
 RUN apt-get install -y bzip2 build-essential chrpath libssl-dev libxft-dev
 
 # PhantomJS
