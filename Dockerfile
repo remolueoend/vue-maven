@@ -1,9 +1,5 @@
 FROM debian:jessie
 
-RUN echo 'export M2_HOME=/usr/local/apache-maven/apache-maven-3.3.9'  >> ~/.bashrc
-RUN echo 'export M2=$M2_HOME/bin'  >> ~/.bashrc
-RUN echo 'export MAVEN_OPTS="-Xms256m -Xmx512m"'  >> ~/.bashrc
-RUN echo 'export PATH=$M2:$PATH'  >> ~/.bashrc
 
 RUN apt-get update && apt-get install -y apt-utils&& apt-get install -y curl wget \
     && apt-get install -y bzip2 build-essential chrpath libssl-dev libxft-dev \
@@ -45,3 +41,8 @@ RUN apt-get update && apt-get install -y apt-utils&& apt-get install -y curl wge
     && mkdir -p /usr/local/apache-maven \
     && mv apache-maven-3.3.9-bin.tar.gz /usr/local/apache-maven \
     && cd /usr/local/apache-maven && tar -xzvf apache-maven-3.3.9-bin.tar.gz
+
+RUN echo 'export M2_HOME=/usr/local/apache-maven/apache-maven-3.3.9'  >> ~/.bashrc
+RUN echo 'export M2=$M2_HOME/bin'  >> ~/.bashrc
+RUN echo 'export MAVEN_OPTS="-Xms256m -Xmx512m"'  >> ~/.bashrc
+RUN echo 'export PATH=$M2:$PATH'  >> ~/.bashrc
