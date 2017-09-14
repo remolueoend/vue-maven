@@ -1,7 +1,7 @@
 FROM debian:jessie
 
 
-RUN apt-get update && apt-get install -y apt-utils&& apt-get install -y curl wget \
+RUN apt-get update && apt-get install -y apt-utils&& apt-get install -y curl wget unzip \
     && apt-get install -y bzip2 build-essential chrpath libssl-dev libxft-dev \
 # PhantomJS
     && apt-get install libfreetype6 libfreetype6-dev \
@@ -40,7 +40,15 @@ RUN apt-get update && apt-get install -y apt-utils&& apt-get install -y curl wge
     && wget http://apache.mirrors.lucidnetworks.net/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.tar.gz \
     && mkdir -p /usr/local/apache-maven \
     && mv apache-maven-3.3.9-bin.tar.gz /usr/local/apache-maven \
-    && cd /usr/local/apache-maven && tar -xzvf apache-maven-3.3.9-bin.tar.gz
+    && cd /usr/local/apache-maven && tar -xzvf apache-maven-3.3.9-bin.tar.gz \
+# install browserstack local
+    && wget https://www.browserstack.com/browserstack-local/BrowserStackLocal-linux-ia32.zip \ 
+    && unzip BrowserStackLocal-linux-ia32.zip \
+    && rm BrowserStackLocal-linux-ia32.zip \
+    && chmod +x BrowserStackLocal \
+    && mv BrowserStackLocal /usr/local/bin
+
+
 
 RUN echo 'export M2_HOME=/usr/local/apache-maven/apache-maven-3.3.9'  >> ~/.bashrc
 RUN echo 'export M2=$M2_HOME/bin'  >> ~/.bashrc
