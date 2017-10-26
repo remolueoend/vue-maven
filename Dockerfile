@@ -3,7 +3,7 @@ FROM debian:jessie
 WORKDIR ~
 RUN apt-get update && apt-get install -y apt-utils
 RUN apt-get install -y curl wget unzip git-core \
-    bzip2 build-essential chrpath libssl-dev libxft-dev \
+    bzip2 build-essential chrpath libssl-dev libxft-dev
 # PhantomJS
 RUN apt-get install -y libfreetype6 libfreetype6-dev \
     libfontconfig1 libfontconfig1-dev
@@ -34,12 +34,12 @@ RUN echo "deb http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main" | te
 RUN echo debconf shared/accepted-oracle-license-v1-1 select true | debconf-set-selections \
     && echo debconf shared/accepted-oracle-license-v1-1 seen true | debconf-set-selections \
     && apt-get install -y oracle-java8-installer \
-    oracle-java8-set-default \
+    oracle-java8-set-default
 # install maven
 RUN wget http://apache.mirrors.lucidnetworks.net/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.tar.gz \
     && mkdir -p /usr/local/apache-maven \
     && mv apache-maven-3.3.9-bin.tar.gz /usr/local/apache-maven \
-    && cd /usr/local/apache-maven && tar -xzvf apache-maven-3.3.9-bin.tar.gz \
+    && cd /usr/local/apache-maven && tar -xzvf apache-maven-3.3.9-bin.tar.gz
 # install browserstack local
 RUN wget https://www.browserstack.com/browserstack-local/BrowserStackLocal-linux-x64.zip \ 
     && unzip BrowserStackLocal-linux-x64.zip \
