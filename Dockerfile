@@ -8,13 +8,13 @@ RUN apt-get install -y curl wget unzip git-core \
 RUN apt-get install -y libfreetype6 libfreetype6-dev \
     libfontconfig1 libfontconfig1-dev
 RUN export PHANTOM_JS="phantomjs-1.9.8-linux-x86_64" \
-    && wget https://bitbucket.org/ariya/phantomjs/downloads/$PHANTOM_JS.tar.bz2 \
+    && wget https://github.com/Medium/phantomjs/releases/download/v1.9.19/$PHANTOM_JS.tar.bz2 \
     && tar xvjf $PHANTOM_JS.tar.bz2 \
     && mv $PHANTOM_JS /usr/local/share \
     && ln -sf /usr/local/share/$PHANTOM_JS/bin/phantomjs /usr/local/bin
 # Install node
 RUN apt-get install sudo \
-    && curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash - \
+    && curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash - \
     && sudo apt-get install -y nodejs \
     && sudo npm install node-gyp -g
 # Install yarn
