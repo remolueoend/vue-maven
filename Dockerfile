@@ -14,7 +14,7 @@ RUN export PHANTOM_JS="phantomjs-1.9.8-linux-x86_64" \
     && ln -sf /usr/local/share/$PHANTOM_JS/bin/phantomjs /usr/local/bin
 # Install node
 RUN apt-get install sudo \
-    && curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash - \
+    && curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash - \
     && sudo apt-get install -y nodejs \
     && sudo npm install node-gyp -g
 # Install yarn
